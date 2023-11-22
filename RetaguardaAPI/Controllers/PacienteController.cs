@@ -18,7 +18,7 @@ namespace RetaguardaAPI.Controllers
         [HttpGet]
         public IActionResult getAll()
         {
-            var result = _dbContext.Paciente.Where(i => !i.Status.Equals(0)).ToList();
+            var result = _dbContext.Paciente.Where(i => i.Status.Equals(0)).ToList();
             return Ok(result);
         }
 
@@ -55,7 +55,7 @@ namespace RetaguardaAPI.Controllers
             return NoContent();
         }
 
-        [HttpDelete("ide")]
+        [HttpDelete("{ide}")]
         public IActionResult delete(Guid ide)
         {
             var result = _dbContext.Paciente.First(i => i.Ide.Equals(ide));
