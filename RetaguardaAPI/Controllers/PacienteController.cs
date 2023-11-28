@@ -49,7 +49,6 @@ namespace RetaguardaAPI.Controllers
             result.Status = paciente.Status;
             result.Description = paciente.Description;
 
-            _dbContext.Paciente.Update(result);
             _dbContext.SaveChanges();
 
             return NoContent();
@@ -63,7 +62,6 @@ namespace RetaguardaAPI.Controllers
                 return NotFound();
 
             result.Status = -1;
-            _dbContext.Paciente.Update(result);
             _dbContext.SaveChanges();
 
             return NoContent();
